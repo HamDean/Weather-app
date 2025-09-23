@@ -15,6 +15,21 @@
 }
 
 @font-face {
+  font-family: "dms-bold";
+  src: url("./assets/fonts/DM_Sans/static/DMSans-Bold.ttf");
+}
+
+@font-face {
+  font-family: "DM-Sans-Medium";
+  src: url("./assets/fonts/DM_Sans/static/DMSans-Medium.ttf");
+}
+
+@font-face {
+  font-family: "DM-Sans-i";
+  src: url("./assets/fonts/DM_Sans/static/DMSans-SemiBoldItalic.ttf");
+}
+
+@font-face {
   font-family: "Grotesque";
   src: url("./assets/fonts/Bricolage_Grotesque/static/BricolageGrotesque-Bold.ttf");
 }
@@ -119,6 +134,7 @@ body {
   font-size: 52px;
   text-align: center;
   margin-top: 24px;
+  text-align: center;
 }
 
 main {
@@ -148,11 +164,10 @@ main {
   color: white;
 }
 
-
 .country-input img {
   width: 20px;
   height: 20px;
-  color: #D4D3D9;
+  color: #d4d3d9;
 }
 
 .search-form {
@@ -163,7 +178,7 @@ main {
 }
 
 .btn {
-  background-color: #4658D9;
+  background-color: #4658d9;
   border: none;
   outline: none;
   color: white;
@@ -171,6 +186,51 @@ main {
   height: 45px;
   border-radius: 12px;
   cursor: pointer;
+}
+
+/* weather info section */
+.weather-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 32px;
+  background-color: #332cad;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.temperature {
+  font-size: 96px;
+  font-weight: 550;
+  font-family: "DM-Sans-i";
+}
+
+.location {
+  font-size: 28px;
+  font-family: "dms-bold";
+}
+
+.location-container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.temperature-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.temperature-container img {
+  width: 120px;
+  height: 120px;
+}
+
+.date {
+  font-size: 18px;
+  font-family: "DM-Sans-Medium";
+  opacity: 0.7;
 }
 
 @media screen and (min-width: 768px) {
@@ -193,8 +253,24 @@ main {
   .search-form {
     flex-direction: row;
   }
-  
+
   .btn {
     width: 114px;
+  }
+
+  .weather-info {
+    flex-direction: row;
+    height: 286px;
+    padding-right: 40px;
+  }
+
+  .location-container {
+    text-align: left;
+    /* max-width: 800px; */
+  }
+
+  .temperature-container {
+    width: 50%;
+    justify-self: flex-end;
   }
 }
