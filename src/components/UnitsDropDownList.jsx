@@ -15,7 +15,8 @@ const UnitsDropDownList = ({ showUnits }) => {
   return (
     <div className={`drop-down-list ${!showUnits && "hide"}`}>
       <span onClick={handleClick}>
-        {switchToMetric ? "Switch to Metric" : "Switch to Imperial"}
+        {`Switch to ${switchToMetric ? 'Metric' : 'Imperial'}`}
+        {/* {switchToMetric ? "Switch to Metric" : "Switch to Imperial"} */}
       </span>
       {unitGroups.map(({ label, convertions }) => (
         <>
