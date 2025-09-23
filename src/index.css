@@ -4,6 +4,16 @@
   padding: 0;
 }
 
+:root {
+  --font-small: 14px;
+  --font-large: 16px;
+}
+
+@font-face {
+  font-family: 'DM-Sans';
+  src: url('./assets/fonts/DM_Sans/static/DMSans-Light.ttf');
+}
+
 body {
   background-color: #02012c;
   color: white;
@@ -30,18 +40,73 @@ body {
   width: 90px;
   height: 33px;
   border-radius: 8px;
-  font-size: 14px;
+  font-size: var(--font-small);
   font-weight: 500;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   gap: 6px;
   cursor: pointer;
+  font-family: 'DM-Sans';
 }
 
 .unit-btn img {
   width: 14px;
   height: 14px;
+}
+
+.drop-down-list, .drop-down-list div {
+  display: flex;
+  flex-direction: column;
+  font-size: var(--font-large);
+}
+
+.drop-down-list {
+  background-color: #3C3B5E;
+  padding: 16px;
+  border-radius: 12px;
+  width: 180px;
+  padding: 8px;
+  margin-top: 10px;
+  position: absolute;
+  top: 55px;
+  font-family: 'DM-Sans';
+  font-weight: 450;
+}
+
+.drop-down-list span {
+  height: 40px;
+  padding: 10px 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  text-wrap: nowrap;
+}
+
+.drop-down-list .selected {
+  background-color: #302F4A;
+}
+
+.header {
+  color: #ACACB7;
+  font-size: var(--font-small);
+  cursor: crosshair;
+}
+
+.dropDown {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: end;
+}
+
+.hide {
+  display: none;
+}
+
+.unit {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 @media screen and (min-width: 768px) {
@@ -53,6 +118,11 @@ body {
   .unit-btn {
     width: 120px;
     height: 43px;
-    font-size: 16px;
+    font-size: var(--font-large);
+  }
+
+  .drop-down-list {
+    width: 214px;
+    top: 65px;
   }
 }
