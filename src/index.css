@@ -1,0 +1,20 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #02012c;
+}
+
+.nav > img {
+  width: 138px;
+  height: 28px;
+}
+
+@media screen and (min-width: 768px) {
+  .nav > img {
+    width: 197px;
+    height: 40px;
+  }
+}
