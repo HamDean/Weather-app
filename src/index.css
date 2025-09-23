@@ -10,18 +10,19 @@
 }
 
 @font-face {
-  font-family: 'DM-Sans';
-  src: url('./assets/fonts/DM_Sans/static/DMSans-Light.ttf');
+  font-family: "DM-Sans";
+  src: url("./assets/fonts/DM_Sans/static/DMSans-Light.ttf");
 }
 
 @font-face {
-  font-family: 'Grotesque';
-  src: url('./assets/fonts/Bricolage_Grotesque/static/BricolageGrotesque-Bold.ttf');
+  font-family: "Grotesque";
+  src: url("./assets/fonts/Bricolage_Grotesque/static/BricolageGrotesque-Bold.ttf");
 }
 
 body {
   background-color: #02012c;
   color: white;
+  font-family: "DM-Sans";
 }
 
 .nav {
@@ -52,7 +53,6 @@ body {
   justify-content: space-evenly;
   gap: 6px;
   cursor: pointer;
-  font-family: 'DM-Sans';
 }
 
 .unit-btn img {
@@ -60,14 +60,15 @@ body {
   height: 14px;
 }
 
-.drop-down-list, .drop-down-list div {
+.drop-down-list,
+.drop-down-list div {
   display: flex;
   flex-direction: column;
   font-size: var(--font-large);
 }
 
 .drop-down-list {
-  background-color: #3C3B5E;
+  background-color: #3c3b5e;
   padding: 16px;
   border-radius: 12px;
   width: 180px;
@@ -75,7 +76,6 @@ body {
   margin-top: 10px;
   position: absolute;
   top: 55px;
-  font-family: 'DM-Sans';
   font-weight: 450;
 }
 
@@ -88,11 +88,11 @@ body {
 }
 
 .drop-down-list .selected {
-  background-color: #302F4A;
+  background-color: #302f4a;
 }
 
 .header {
-  color: #ACACB7;
+  color: #acacb7;
   font-size: var(--font-small);
   cursor: crosshair;
 }
@@ -115,10 +115,62 @@ body {
 }
 
 .hero {
-  font-family: 'Grotesque';
+  font-family: "Grotesque";
   font-size: 52px;
   text-align: center;
   margin-top: 24px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px;
+}
+
+.country-input {
+  min-width: 300px;
+  max-width: 526px;
+  height: 45px;
+  border-radius: 12px;
+  background-color: #262540;
+  padding: 16px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.country-input input {
+  border: none;
+  outline: none;
+  background-color: inherit;
+  font-size: 18px;
+  color: white;
+}
+
+
+.country-input img {
+  width: 20px;
+  height: 20px;
+  color: #D4D3D9;
+}
+
+.search-form {
+  margin-top: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.btn {
+  background-color: #4658D9;
+  border: none;
+  outline: none;
+  color: white;
+  width: 300px;
+  height: 45px;
+  border-radius: 12px;
+  cursor: pointer;
 }
 
 @media screen and (min-width: 768px) {
@@ -136,5 +188,13 @@ body {
   .drop-down-list {
     width: 214px;
     top: 65px;
+  }
+
+  .search-form {
+    flex-direction: row;
+  }
+  
+  .btn {
+    width: 114px;
   }
 }
