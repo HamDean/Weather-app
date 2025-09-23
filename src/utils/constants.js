@@ -31,3 +31,10 @@ export const unitGroups = [
     ],
   },
 ];
+
+export const  dummyDetails = [
+  { title: "Feels Like", value: "72°" },
+  { title: "Feels Like", value: "72°" },
+  { title: "Feels Like", value: "72°" },
+  { title: "Feels Like", value: "72°" },
+];

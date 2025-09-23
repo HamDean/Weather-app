@@ -233,6 +233,36 @@ main {
   opacity: 0.7;
 }
 
+/* weather info detail section */
+.detail-container {
+  width: 164px;
+  height: 118px;
+  background-color: #262540;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: start;
+  padding: 20px;
+}
+
+.detail-container .title {
+  font-size: 18px;
+  color: #D4D3D9;
+}
+
+.detail-container .value{
+  font-size: 32px;
+}
+
+.details-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-top: 20px;
+}
+
+
 @media screen and (min-width: 768px) {
   .nav > img {
     width: 197px;
@@ -272,5 +302,9 @@ main {
   .temperature-container {
     width: 50%;
     justify-self: flex-end;
+  }
+
+  .details-list {
+    display: flex;
   }
 }
