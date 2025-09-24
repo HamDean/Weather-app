@@ -195,7 +195,6 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 32px;
   background-color: #332cad;
   padding: 20px;
   border-radius: 20px;
@@ -334,7 +333,7 @@ main {
   outline: none;
   border: none;
   cursor: pointer;
-  background-color: #3C3B5E;
+  background-color: #3c3b5e;
   color: white;
   padding: 10px 8px;
   border-radius: 8px;
@@ -348,10 +347,12 @@ main {
   width: 214px;
   display: flex;
   flex-direction: column;
-  background-color: #3C3B5E;
+  background-color: #3c3b5e;
   border-radius: 12px;
   padding: 10px 8px;
   margin-top: 5px;
+  position: absolute;
+  right: 0;
 }
 
 .day-list-item {
@@ -363,8 +364,12 @@ main {
   border-radius: 12px;
 }
 
-.day-list-item:hover{
+.day-list-item:hover {
   background-color: #302f4a;
+}
+
+.days-form {
+  position: relative;
 }
 
 .forecast-section {
@@ -384,7 +389,15 @@ main {
 .forecast-section main {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  justify-content: center;
+  gap: 13px;
+}
+
+.gen-forecast {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin: 48px;
 }
 
 @media screen and (min-width: 768px) {
@@ -442,11 +455,16 @@ main {
   }
 
   .hour-card {
-    width: 672px;
+    width: 100%;
   }
 
   .forecast-section {
-    width: 720px;
+    width: 100%;
+    padding: 0;
+  }
+
+  .forecast-section header {
+    padding: 15px 30px;
   }
 }
 
@@ -458,4 +476,10 @@ main {
   .forecast-section {
     width: 384px;
   }
+
+  .gen-forecast {
+    flex-direction: row;
+  }
+
+
 }

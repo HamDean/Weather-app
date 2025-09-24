@@ -15,7 +15,7 @@ const HourlyForecastDropDown = () => {
     setShowDays((prev) => !prev);
   };
   return (
-    <div role="form">
+    <div className="days-form" role="form">
       <SeleceTrigger handleClick={handleClick} selectedDay={selectedDay} />
       {showDays && <SelectContent handleSelect={handleSelect} days={days} />}
     </div>

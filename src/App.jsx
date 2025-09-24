@@ -6,8 +6,6 @@ import Sunny from "./assets/images/icon-sunny.webp";
 import WeatherDetailsList from "./components/WeatherDetailsList";
 import { dummyDetails } from "./utils/constants";
 import ForecastList from "./components/ForecastList";
-import HourlyForecastCard from "./components/HourlyForecastCard";
-import HourlyForecastDropDown from "./components/HourlyForecastDropDown";
 import HourlyForecastSection from "./components/HourlyForecastSection";
 
 const App = () => {
@@ -17,17 +15,19 @@ const App = () => {
       <main>
         <Hero />
         <SearchCountryInput />
-        <section id="weather-info">
-          <WeatherInfo
-            location={"Berlin, Germany"}
-            date={"Tuesday, Aug 5, 2025"}
-            icon={Sunny}
-            temperature={72}
-          />
-          <WeatherDetailsList details={dummyDetails} />
-          <ForecastList />
+        <article className="gen-forecast">
+          <section id="weather-info">
+            <WeatherInfo
+              location={"Berlin, Germany"}
+              date={"Tuesday, Aug 5, 2025"}
+              icon={Sunny}
+              temperature={72}
+            />
+            <WeatherDetailsList details={dummyDetails} />
+            <ForecastList />
+          </section>
           <HourlyForecastSection />
-        </section>
+        </article>
       </main>
     </>
   );
