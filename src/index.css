@@ -38,7 +38,6 @@ body {
   background-color: #02012c;
   color: white;
   font-family: "DM-Sans";
-  height: 200vh; /** temporal styling */
 }
 
 .nav {
@@ -176,7 +175,7 @@ main {
   margin-top: 48px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 5px;
 }
 
 .btn {
@@ -198,7 +197,7 @@ main {
   align-items: center;
   padding: 20px;
   border-radius: 20px;
-  background-image: url('./assets/images/bg-today-small.svg');
+  background-image: url("./assets/images/bg-today-small.svg");
 }
 
 .temperature {
@@ -402,6 +401,36 @@ main {
   margin: 48px;
 }
 
+/** Search Dropdown */
+.search-list {
+  display: flex;
+  flex-direction: column;
+  background-color: #262540;
+  border-radius: 12px;
+  padding: 10px;
+  min-width: 300px;
+  max-width: 526px;
+}
+
+.hidden {
+  display: none;
+}
+
+.search-list span {
+  height: 40px;
+  padding: 10px 8px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.search-list span:hover {
+  background-color: #302f4a;
+}
+
+.search-form {
+  position: relative;
+}
+
 @media screen and (min-width: 768px) {
   .nav > img {
     width: 197px;
@@ -421,6 +450,8 @@ main {
 
   .search-form {
     flex-direction: row;
+    position: relative;
+    gap: 12px;
   }
 
   .btn {
@@ -432,7 +463,7 @@ main {
     height: 286px;
     padding-right: 40px;
     justify-content: space-between;
-    background-image: url('./assets/images/bg-today-large.svg');
+    background-image: url("./assets/images/bg-today-large.svg");
   }
 
   .location-container {
@@ -470,6 +501,11 @@ main {
   .forecast-section header {
     padding: 15px 30px;
   }
+
+  .search-list {
+    position: absolute;
+    top: 40px;
+  }
 }
 
 @media screen and (min-width: 1000px) {
@@ -484,6 +520,4 @@ main {
   .gen-forecast {
     flex-direction: row;
   }
-
-
 }

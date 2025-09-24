@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { useState } from "react";
 import SearchIcon from "../assets/images/icon-search.svg";
+import SearchDropdown from "./SearchDropdown";
 
 const SearchCountryInput = () => {
   const [query, setQuery] = useState(null);
@@ -23,6 +24,7 @@ const SearchCountryInput = () => {
           onChange={handleChange}
         />
       </div>
+      <SearchDropdown />
       <button className="btn">Search</button>
     </form>
   );
