@@ -5,6 +5,7 @@ import WeatherInfo from "./components/WeatherInfo";
 import Sunny from "./assets/images/icon-sunny.webp";
 import WeatherDetailsList from "./components/WeatherDetailsList";
 import { dummyDetails } from "./utils/constants";
+import ForecastList from "./components/ForecastList";
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
             temperature={72}
           />
           <WeatherDetailsList details={dummyDetails} />
+          <ForecastList />
         </section>
       </main>
     </>

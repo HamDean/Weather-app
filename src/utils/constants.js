@@ -38,3 +38,13 @@ export const  dummyDetails = [
   { title: "Feels Like", value: "72°" },
   { title: "Feels Like", value: "72°" },
 ];
+
+export const dummyForecast = [
+  { day: 'Tue', min: 25, max: 55},
+  { day: 'Wed', min: 15, max: 45},
+  { day: 'Thu', min: 75, max: 85},
+  { day: 'Fri', min: 75, max: 85},
+  { day: 'Sat', min: 75, max: 85},
+  { day: 'Sun', min: 75, max: 85},
+  { day: 'Mon', min: 75, max: 85},
+]
