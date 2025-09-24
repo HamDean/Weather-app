@@ -8,6 +8,7 @@ import { dummyDetails } from "./utils/constants";
 import ForecastList from "./components/ForecastList";
 import HourlyForecastCard from "./components/HourlyForecastCard";
 import HourlyForecastDropDown from "./components/HourlyForecastDropDown";
+import HourlyForecastSection from "./components/HourlyForecastSection";
 
 const App = () => {
   return (
@@ -25,6 +26,7 @@ const App = () => {
           />
           <WeatherDetailsList details={dummyDetails} />
           <ForecastList />
+          <HourlyForecastSection />
         </section>
       </main>
     </>

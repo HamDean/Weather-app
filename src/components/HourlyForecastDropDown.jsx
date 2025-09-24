@@ -3,7 +3,7 @@ import { days } from "../utils/constants";
 import IconDropDown from "../assets/images/icon-dropdown.svg";
 
 const HourlyForecastDropDown = () => {
-  const [showDays, setShowDays] = useState(true);
+  const [showDays, setShowDays] = useState(false);
   const [selectedDay, setSelectedDay] = useState("Monday");
 
   const handleSelect = (day) => {
