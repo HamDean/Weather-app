@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import SearchIcon from "../assets/images/icon-search.svg";
 import SearchDropdown from "./SearchDropdown";
+import { fetchWeatherApi } from "openmeteo";
 
 const SearchCountryInput = () => {
   const [query, setQuery] = useState("");
   const [countries, setCountries] = useState([]);
+  const [selectedCountry, setSelectedCountry] = useState({});
 
   useEffect(() => {
     fetch(
@@ -18,10 +20,43 @@ const SearchCountryInput = () => {
       });
   }, [query]);
 
+  useEffect(() => {
+    const fetchForecast = async () => {
+      if (selectedCountry) {
+        const url = "https://api.open-meteo.com/v1/forecast";
+        const params = {
+          latitude: selectedCountry.latitude,
+          longitude: selectedCountry.longitude,
+          daily: ["temperature_2m_max", "apparent_temperature_max"],
+          hourly: "temperature_2m",
+          current: [
+            "temperature_2m",
+            "precipitation",
+            "relative_humidity_2m",
+            "wind_speed_10m",
+          ],
+          timezone: "Europe/London",
+        };
+        const responses = await fetchWeatherApi(url, params);
+        console.log(responses[0]);
+      }
+    };
+
+    fetchForecast()
+  }, [selectedCountry]);
+
   const handleChange = (e) => {
     if (e.target) {
       setQuery(e.target.value);
     }
+  };
+
+  const handleSelect = (country) => {
+    console.log(country);
+    setSelectedCountry({
+      latitude: country.latitude,
+      longitude: country.longitude,
+    });
   };
 
   return (
@@ -36,7 +71,11 @@ const SearchCountryInput = () => {
           onChange={handleChange}
         />
       </div>
-      <SearchDropdown query={query} countries={countries} />
+      <SearchDropdown
+        handleSelect={handleSelect}
+        query={query}
+        countries={countries}
+      />
       <button className="btn">Search</button>
     </form>
   );

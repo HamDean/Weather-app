@@ -1,9 +1,15 @@
 
-const SearchDropdown = ({ countries, query}) => {
+const SearchDropdown = ({ countries, query, handleSelect }) => {
   return (
-    <div className={`search-list ${countries.length == 0 || query == '' ? 'hidden' : ''}`}>
+    <div
+      className={`search-list ${
+        countries.length == 0 || query == "" ? "hidden" : ""
+      }`}
+    >
       {countries.map((country, index) => (
-        <span key={index}>{country.name}</span>
+        <span onClick={() => handleSelect(country)} key={index}>
+          {country.name}
+        </span>
       ))}
     </div>
   );

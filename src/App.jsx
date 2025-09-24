@@ -7,9 +7,9 @@ import WeatherDetailsList from "./components/WeatherDetailsList";
 import { dummyDetails } from "./utils/constants";
 import ForecastList from "./components/ForecastList";
 import HourlyForecastSection from "./components/HourlyForecastSection";
-import SearchDropdown from "./components/SearchDropdown";
 
 const App = () => {
+  
   return (
     <>
       <Navbar />
