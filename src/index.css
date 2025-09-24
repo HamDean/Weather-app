@@ -93,6 +93,7 @@ body {
   position: absolute;
   top: 55px;
   font-weight: 450;
+  z-index: 100000;
 }
 
 .drop-down-list span {
@@ -219,7 +220,8 @@ main {
 
 .temperature-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: end;
+  gap: 20px;
 }
 
 .temperature-container img {
