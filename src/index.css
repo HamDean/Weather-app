@@ -195,9 +195,9 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #332cad;
   padding: 20px;
   border-radius: 20px;
+  background-image: url('./assets/images/bg-today-small.svg');
 }
 
 .temperature {
@@ -429,6 +429,8 @@ main {
     flex-direction: row;
     height: 286px;
     padding-right: 40px;
+    justify-content: space-between;
+    background-image: url('./assets/images/bg-today-large.svg');
   }
 
   .location-container {
