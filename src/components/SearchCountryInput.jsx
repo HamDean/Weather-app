@@ -1,10 +1,22 @@
-/* eslint-disable no-unused-vars */
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SearchIcon from "../assets/images/icon-search.svg";
 import SearchDropdown from "./SearchDropdown";
 
 const SearchCountryInput = () => {
-  const [query, setQuery] = useState(null);
+  const [query, setQuery] = useState("");
+  const [countries, setCountries] = useState([]);
+
+  useEffect(() => {
+    fetch(
+      `https://geocoding-api.open-meteo.com/v1/search?name=${query}&count=5`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        if (data && data.results) {
+          setCountries(data.results);
+        }
+      });
+  }, [query]);
 
   const handleChange = (e) => {
     if (e.target) {
@@ -24,7 +36,7 @@ const SearchCountryInput = () => {
           onChange={handleChange}
         />
       </div>
-      <SearchDropdown />
+      <SearchDropdown query={query} countries={countries} />
       <button className="btn">Search</button>
     </form>
   );

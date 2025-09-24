@@ -1,11 +1,9 @@
-// const cities = ["Accra", "Dubai", "New York", "Vancouver"];
-const cities = []
 
-const SearchDropdown = () => {
+const SearchDropdown = ({ countries, query}) => {
   return (
-    <div className={`search-list ${cities.length == 0 ? 'hidden' : ''}`}>
-      {cities.map((city, index) => (
-        <span key={index}>{city}</span>
+    <div className={`search-list ${countries.length == 0 || query == '' ? 'hidden' : ''}`}>
+      {countries.map((country, index) => (
+        <span key={index}>{country.name}</span>
       ))}
     </div>
   );
