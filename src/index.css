@@ -38,6 +38,7 @@ body {
   background-color: #02012c;
   color: white;
   font-family: "DM-Sans";
+  height: 200vh; /** temporal styling */
 }
 
 .nav {
@@ -326,6 +327,45 @@ main {
   display: flex;
   align-items: center;
   gap: 8px;
+}
+
+.select-trigger {
+  width: 120px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background-color: #262540;
+  color: white;
+  padding: 10px 8px;
+  border-radius: 8px;
+  font-weight: 500;
+  display: flex;
+  gap: 8px;
+  justify-content: space-around;
+}
+
+.days-content {
+  width: 214px;
+  display: flex;
+  flex-direction: column;
+  background-color: #262540;
+  border-radius: 12px;
+  padding: 10px 8px;
+  margin-top: 5px;
+}
+
+.day-list-item {
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  border-radius: 12px;
+}
+
+.day-list-item:hover,
+.selected-day {
+  background-color: #302f4a;
 }
 
 @media screen and (min-width: 768px) {

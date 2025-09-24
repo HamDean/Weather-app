@@ -1,4 +1,3 @@
-import IconFog from "../assets/images/icon-fog.webp";
 const HourlyForecastCard = ({ icon, time, temperature }) => {
   return (
     <div className="hour-card">
