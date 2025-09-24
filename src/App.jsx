@@ -6,6 +6,7 @@ import Sunny from "./assets/images/icon-sunny.webp";
 import WeatherDetailsList from "./components/WeatherDetailsList";
 import { dummyDetails } from "./utils/constants";
 import ForecastList from "./components/ForecastList";
+import HourlyForecastCard from "./components/HourlyForecastCard";
 
 const App = () => {
   return (

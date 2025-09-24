@@ -305,6 +305,29 @@ main {
   margin-top: 20px;
 }
 
+/** Hourly Forecast Section */
+.hour-card {
+  display: flex;
+  justify-content: space-between;
+  width: 300px;
+  height: 60px;
+  background-color: #302f4a;
+  padding: 18px 12px;
+  border-radius: 8px;
+  font-size: 20px;
+}
+
+.hour-card div:first-child img {
+  width: 40px;
+  height: 40px;
+}
+
+.hour-card div:first-child {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 @media screen and (min-width: 768px) {
   .nav > img {
     width: 197px;
@@ -352,10 +375,20 @@ main {
   }
 
   .details-list {
-    justify-content: space-between ;
+    justify-content: space-between;
   }
 
   .detail-container {
     width: 182px;
+  }
+
+  .hour-card {
+    width: 672px;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .hour-card {
+    width: 336px;
   }
 }
