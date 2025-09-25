@@ -4,7 +4,6 @@ import SearchCountryInput from "./components/SearchCountryInput";
 import WeatherInfo from "./components/WeatherInfo";
 import Sunny from "./assets/images/icon-sunny.webp";
 import WeatherDetailsList from "./components/WeatherDetailsList";
-import { dummyDetails } from "./utils/constants";
 import ForecastList from "./components/ForecastList";
 import HourlyForecastSection from "./components/HourlyForecastSection";
 import { useState, useEffect } from "react";
@@ -73,7 +72,7 @@ const App = () => {
               temperature={weatherData?.current?.temperature_2m || "--"}
             />
 
-            <WeatherDetailsList details={dummyDetails} />
+            <WeatherDetailsList details={weatherData?.current} units={weatherData?.current_units} />
             <ForecastList />
           </section>
           <HourlyForecastSection />

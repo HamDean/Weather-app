@@ -6,7 +6,7 @@ const SearchCountryInput = ({ handleSelectedCity }) => {
   const [query, setQuery] = useState("");
   const [cities, setCities] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(true);
-  const searchRef = useRef()
+  const searchRef = useRef();
 
   useEffect(() => {
     fetch(
@@ -17,7 +17,8 @@ const SearchCountryInput = ({ handleSelectedCity }) => {
         if (data && data.results) {
           setCities(data.results);
         }
-      });
+      })
+      .catch((e) => console.log("Could not fetch suggestions", e.message));
   }, [query]);
 
   const handleChange = (e) => {
@@ -28,7 +29,7 @@ const SearchCountryInput = ({ handleSelectedCity }) => {
 
   const handleSubmit = (formData) => {
     setQuery(formData.get("city"));
-    setShowSuggestions(false)
+    setShowSuggestions(false);
   };
 
   return (

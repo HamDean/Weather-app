@@ -250,6 +250,7 @@ main {
   justify-content: space-around;
   align-items: start;
   padding: 20px;
+  text-wrap: nowrap;
 }
 
 .detail-container .title {
@@ -471,6 +472,7 @@ main {
     flex-direction: row;
     height: 286px;
     padding-right: 40px;
+    padding-left: 30px;
     justify-content: space-between;
     background-image: url("./assets/images/bg-today-large.svg");
   }
