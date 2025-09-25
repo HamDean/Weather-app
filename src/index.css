@@ -198,12 +198,15 @@ main {
   padding: 20px;
   border-radius: 20px;
   background-image: url("./assets/images/bg-today-small.svg");
+  background-repeat: no-repeat;
+  width: 100%;
 }
 
 .temperature {
-  font-size: 96px;
+  font-size: 67px;
   font-weight: 550;
   font-family: "DM-Sans-i";
+  align-self: center;
 }
 
 .location {
@@ -215,6 +218,8 @@ main {
   display: flex;
   flex-direction: column;
   text-align: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .temperature-container {
@@ -456,6 +461,10 @@ main {
 
   .btn {
     width: 114px;
+  }
+
+  .temperature {
+    font-size: 96px;
   }
 
   .weather-info {

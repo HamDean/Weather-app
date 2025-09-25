@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import SearchIcon from "../assets/images/icon-search.svg";
 import SearchDropdown from "./SearchDropdown";
 
-const SearchCountryInput = ({ handleSelectedCountry }) => {
-  const [query, setQuery] = useState("");
-  const [countries, setCountries] = useState([]);
+const SearchCountryInput = ({ handleSelectedCity }) => {
+  const [query, setQuery] = useState("Accra");
+  const [cities, setCities] = useState([]);
 
   useEffect(() => {
     fetch(
@@ -13,7 +13,7 @@ const SearchCountryInput = ({ handleSelectedCountry }) => {
       .then((res) => res.json())
       .then((data) => {
         if (data && data.results) {
-          setCountries(data.results);
+          setCities(data.results);
         }
       });
   }, [query]);
@@ -37,9 +37,9 @@ const SearchCountryInput = ({ handleSelectedCountry }) => {
         />
       </div>
       <SearchDropdown
-        handleSelect={handleSelectedCountry}
+        handleSelectedCity={handleSelectedCity}
         query={query}
-        countries={countries}
+        cities={cities}
       />
       <button className="btn">Search</button>
     </form>

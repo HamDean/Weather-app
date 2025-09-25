@@ -10,37 +10,46 @@ import HourlyForecastSection from "./components/HourlyForecastSection";
 import { useState, useEffect } from "react";
 
 const App = () => {
-  const [selectedCountry, setSelectedCountry] = useState({});
+  const [selectedCity, setSelectedCity] = useState({
+    latitude: 5.6037,
+    longitude: -0.187,
+    name: "Accra",
+    country: "Ghana",
+  });
+  const [weatherData, setWeatherData] = useState(null);
 
   useEffect(() => {
-    if (selectedCountry) {
-      const searchParams = new URLSearchParams({
-        latitude: selectedCountry.latitude,
-        longitude: selectedCountry.longitude,
-        daily: ["temperature_2m_max", "apparent_temperature_max"],
-        hourly: "temperature_2m",
-        current: [
-          "temperature_2m",
-          "precipitation",
-          "relative_humidity_2m",
-          "wind_speed_10m",
-        ],
-        timezone: "Europe/London",
-      });
+    const searchParams = new URLSearchParams({
+      latitude: selectedCity.latitude,
+      longitude: selectedCity.longitude,
+      daily: ["temperature_2m_max", "apparent_temperature_max"],
+      hourly: "temperature_2m",
+      current: [
+        "temperature_2m",
+        "precipitation",
+        "relative_humidity_2m",
+        "wind_speed_10m",
+      ],
+      timezone: "Europe/London",
+    });
 
-      fetch(`https://api.open-meteo.com/v1/forecast?${searchParams.toString()}`)
-        .then((res) => res.json())
-        .then((data) => console.log(data))
-        .catch((error) =>
-          console.error("Error fetching weather data:", error.message)
-        );
-    }
-  }, [selectedCountry]);
+    fetch(`https://api.open-meteo.com/v1/forecast?${searchParams.toString()}`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setWeatherData(data); // save the full response
+      })
+      .catch((error) =>
+        console.error("Error fetching weather data:", error.message)
+      );
+  }, [selectedCity]);
 
-  const handleSelectedCountry = (country) => {
-    setSelectedCountry({
-      latitude: country.latitude,
-      longitude: country.longitude,
+  const handleSelectedCity = (city) => {
+    setSelectedCity({
+      latitude: city.latitude,
+      longitude: city.longitude,
+      name: city.name,
+      country: city.country,
     });
   };
 
@@ -49,15 +58,21 @@ const App = () => {
       <Navbar />
       <main>
         <Hero />
-        <SearchCountryInput handleSelectedCountry={handleSelectedCountry} />
+        <SearchCountryInput handleSelectedCity={handleSelectedCity} />
         <article className="gen-forecast">
           <section id="weather-info">
             <WeatherInfo
-              location={"Berlin, Germany"}
-              date={"Tuesday, Aug 5, 2025"}
+              location={`${selectedCity.name}, ${selectedCity.country}`}
+              date={new Date().toLocaleDateString("en-US", {
+                weekday: "long",
+                month: "short",
+                day: "numeric",
+                year: "numeric",
+              })}
               icon={Sunny}
-              temperature={72}
+              temperature={weatherData?.current?.temperature_2m || "--"}
             />
+
             <WeatherDetailsList details={dummyDetails} />
             <ForecastList />
           </section>
