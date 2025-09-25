@@ -533,5 +533,6 @@ main {
 
   .gen-forecast {
     flex-direction: row;
+    gap: 12px;
   }
 }
