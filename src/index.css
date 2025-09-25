@@ -146,7 +146,7 @@ main {
 }
 
 .country-input {
-  min-width: 300px;
+  min-width: 344px;
   max-width: 526px;
   height: 45px;
   border-radius: 12px;
@@ -183,7 +183,7 @@ main {
   border: none;
   outline: none;
   color: white;
-  width: 300px;
+  width: 344px;
   height: 45px;
   border-radius: 12px;
   cursor: pointer;
@@ -513,7 +513,12 @@ main {
 
   .search-list {
     position: absolute;
-    top: 40px;
+    top: 50px;
+    width: 80%;
+  }
+
+  .country-input {
+    min-width: 518px;
   }
 }
 
