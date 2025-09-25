@@ -1,19 +1,22 @@
-import { dummyForecast } from "../utils/constants";
 import DailyForecast from "./DailyForecast";
 import IconStorm from "../assets/images/icon-storm.webp";
 
-const ForecastList = () => {
+const ForecastList = ({ weatherData }) => {
   return (
     <>
-      <span style={{fontSize: 20}} className="forecast-title">Daily forecast</span>
+      <span style={{ fontSize: 20 }} className="forecast-title">
+        Daily forecast
+      </span>
       <div className="forecast-list">
-        {dummyForecast.map((cast, index) => (
+        {weatherData?.daily?.time.map((time, index) => (
           <DailyForecast
-            key={index}
+            key={time}
             dayIcon={IconStorm}
-            day={cast.day}
-            min={cast.min}
-            max={cast.max}
+            day={new Date(time).toLocaleDateString("en-US", {
+              weekday: "short",
+            })}
+            min={Math.round(weatherData?.daily?.temperature_2m_min?.[index])}
+            max={Math.round(weatherData?.daily?.temperature_2m_max?.[index])}
           />
         ))}
       </div>

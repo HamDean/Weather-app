@@ -5,8 +5,8 @@ const DailyForecast = ({ day, dayIcon, min, max }) => {
       <span>{day}</span>
       <img src={dayIcon} alt="Represation of the weather" />
       <div className="range">
-        <span>{min}°</span>
         <span>{max}°</span>
+        <span>{min}°</span>
       </div>
     </div>
   );

@@ -21,8 +21,7 @@ const App = () => {
     const searchParams = new URLSearchParams({
       latitude: selectedCity.latitude,
       longitude: selectedCity.longitude,
-      daily: ["temperature_2m_max", "apparent_temperature_max"],
-      hourly: "temperature_2m",
+      daily: ["temperature_2m_max", "temperature_2m_min", "weather_code"],
       current: [
         "temperature_2m",
         "precipitation",
@@ -72,8 +71,11 @@ const App = () => {
               temperature={weatherData?.current?.temperature_2m || "--"}
             />
 
-            <WeatherDetailsList details={weatherData?.current} units={weatherData?.current_units} />
-            <ForecastList />
+            <WeatherDetailsList
+              details={weatherData?.current}
+              units={weatherData?.current_units}
+            />
+            <ForecastList weatherData={weatherData} />
           </section>
           <HourlyForecastSection />
         </article>

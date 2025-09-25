@@ -18,17 +18,17 @@ const UnitsDropDownList = ({ showUnits }) => {
         {`Switch to ${switchToMetric ? 'Metric' : 'Imperial'}`}
         {/* {switchToMetric ? "Switch to Metric" : "Switch to Imperial"} */}
       </span>
-      {unitGroups.map(({ label, convertions }) => (
+      {unitGroups.map(({ label, convertions }, index) => (
         <>
-          <span key={label} className="header">
+          <span key={index} className="header">
             {label}
           </span>
-          {convertions.map((conv) => (
+          {convertions.map((conv, conIndex) => (
             <span
               className={
                 currentUnit == conv.category ? "unit selected" : "unit"
               }
-              key={conv.id}
+              key={conIndex}
             >
               <span>{conv.convertion}</span>
               {currentUnit == conv.category && <img src={IconCheck} alt="Check" />}
