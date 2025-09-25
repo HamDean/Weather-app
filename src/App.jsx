@@ -37,7 +37,7 @@ const App = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        setWeatherData(data); // save the full response
+        setWeatherData(data);
       })
       .catch((error) =>
         console.error("Error fetching weather data:", error.message)
@@ -62,7 +62,8 @@ const App = () => {
         <article className="gen-forecast">
           <section id="weather-info">
             <WeatherInfo
-              location={`${selectedCity.name}, ${selectedCity.country}`}
+              location={"New York, United States"}
+              // location={`${selectedCity.name}, ${selectedCity.country}`}
               date={new Date().toLocaleDateString("en-US", {
                 weekday: "long",
                 month: "short",

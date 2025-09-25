@@ -195,7 +195,8 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  /* padding: 20px; */
+  padding: 20px 5px;
   border-radius: 20px;
   background-image: url("./assets/images/bg-today-small.svg");
   background-repeat: no-repeat;
