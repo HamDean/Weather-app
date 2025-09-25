@@ -3,7 +3,7 @@ import SearchIcon from "../assets/images/icon-search.svg";
 import SearchDropdown from "./SearchDropdown";
 
 const SearchCountryInput = ({ handleSelectedCity }) => {
-  const [query, setQuery] = useState("Accra");
+  const [query, setQuery] = useState("");
   const [cities, setCities] = useState([]);
 
   useEffect(() => {
@@ -37,8 +37,8 @@ const SearchCountryInput = ({ handleSelectedCity }) => {
         />
       </div>
       <SearchDropdown
-        handleSelectedCity={handleSelectedCity}
         query={query}
+        handleSelectedCity={handleSelectedCity}
         cities={cities}
       />
       <button className="btn">Search</button>
