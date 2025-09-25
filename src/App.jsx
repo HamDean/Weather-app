@@ -62,8 +62,7 @@ const App = () => {
         <article className="gen-forecast">
           <section id="weather-info">
             <WeatherInfo
-              location={"New York, United States"}
-              // location={`${selectedCity.name}, ${selectedCity.country}`}
+              location={`${selectedCity.name}, ${selectedCity.country}`}
               date={new Date().toLocaleDateString("en-US", {
                 weekday: "long",
                 month: "short",
