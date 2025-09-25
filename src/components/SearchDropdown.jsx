@@ -1,7 +1,5 @@
-import { useState } from "react";
 
-const SearchDropdown = ({ cities = [], handleSelectedCity, query }) => {
-  const [showSuggestions, setShowSuggestions] = useState(true);
+const SearchDropdown = ({ cities = [], handleSelectedCity, query, showSuggestions, setShowSuggestions, inputRef }) => {
 
   if (!query || cities.length === 0) return null;
 
@@ -13,6 +11,7 @@ const SearchDropdown = ({ cities = [], handleSelectedCity, query }) => {
           onClick={() => {
             handleSelectedCity(city);
             setShowSuggestions(false);
+            inputRef.current.value = ''
           }}
           key={city.id || city.name}
           className="city-option"

@@ -1,10 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import SearchIcon from "../assets/images/icon-search.svg";
 import SearchDropdown from "./SearchDropdown";
 
 const SearchCountryInput = ({ handleSelectedCity }) => {
   const [query, setQuery] = useState("");
   const [cities, setCities] = useState([]);
+  const [showSuggestions, setShowSuggestions] = useState(true);
+  const searchRef = useRef()
 
   useEffect(() => {
     fetch(
@@ -24,22 +26,31 @@ const SearchCountryInput = ({ handleSelectedCity }) => {
     }
   };
 
+  const handleSubmit = (formData) => {
+    setQuery(formData.get("city"));
+    setShowSuggestions(false)
+  };
+
   return (
-    <form className="search-form" action="">
+    <form className="search-form" action={handleSubmit}>
       <div className="country-input">
         <img src={SearchIcon} alt="search icon" />
         <input
           aria-label="Search country"
           placeholder="Search for a place..."
           type="text"
-          name="country"
+          name="city"
           onChange={handleChange}
+          ref={searchRef}
         />
       </div>
       <SearchDropdown
         query={query}
         handleSelectedCity={handleSelectedCity}
         cities={cities}
+        showSuggestions={showSuggestions}
+        setShowSuggestions={setShowSuggestions}
+        inputRef={searchRef}
       />
       <button className="btn">Search</button>
     </form>
