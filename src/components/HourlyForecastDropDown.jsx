@@ -2,13 +2,11 @@ import { useState } from "react";
 import { days } from "../utils/constants";
 import IconDropDown from "../assets/images/icon-dropdown.svg";
 
-const HourlyForecastDropDown = () => {
+const HourlyForecastDropDown = ({ handleSelectedDay, selectedDay }) => {
   const [showDays, setShowDays] = useState(false);
-  const [selectedDay, setSelectedDay] = useState("Monday");
 
-  const handleSelect = (day) => {
-    setSelectedDay(day);
-    setShowDays((prev) => !prev)
+  const handleSelect = () => {
+    setShowDays((prev) => !prev);
   };
 
   const handleClick = () => {
@@ -17,7 +15,13 @@ const HourlyForecastDropDown = () => {
   return (
     <div className="days-form" role="form">
       <SeleceTrigger handleClick={handleClick} selectedDay={selectedDay} />
-      {showDays && <SelectContent handleSelect={handleSelect} days={days} />}
+      {showDays && (
+        <SelectContent
+          handleSelect={handleSelect}
+          handleSelectedDay={handleSelectedDay}
+          days={days}
+        />
+      )}
     </div>
   );
 };
@@ -31,11 +35,18 @@ function SeleceTrigger({ handleClick, selectedDay }) {
   );
 }
 
-function SelectContent({ days, handleSelect }) {
+function SelectContent({ days, handleSelect, handleSelectedDay }) {
   return (
     <div className="days-content">
       {days.map((day, i) => (
-        <span onClick={() => handleSelect(day)} className="day-list-item" key={i}>
+        <span
+          onClick={() => {
+            handleSelect();
+            handleSelectedDay(day);
+          }}
+          className="day-list-item"
+          key={i}
+        >
           {day}
         </span>
       ))}

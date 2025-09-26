@@ -28,6 +28,7 @@ const App = () => {
         "relative_humidity_2m",
         "wind_speed_10m",
       ],
+      hourly: "temperature_2m",
       timezone: "Europe/London",
     });
 
