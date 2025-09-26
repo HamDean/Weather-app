@@ -9,6 +9,7 @@ const SearchCountryInput = ({ handleSelectedCity }) => {
   const searchRef = useRef();
 
   useEffect(() => {
+    if (!query) return;
     fetch(
       `https://geocoding-api.open-meteo.com/v1/search?name=${query}&count=5`
     )
@@ -25,12 +26,15 @@ const SearchCountryInput = ({ handleSelectedCity }) => {
     if (e.target) {
       setQuery(e.target.value);
     }
-    setShowSuggestions(false)
+    setShowSuggestions(false);
   };
 
   const handleSubmit = (formData) => {
-    setQuery(formData.get("city"));
-    setShowSuggestions(false);
+    if (
+      formData.get("city").trim().toLowerCase() == cities[0].name.toLowerCase()
+    )
+      handleSelectedCity(cities[0]);
+    setShowSuggestions(true);
   };
 
   return (
