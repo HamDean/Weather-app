@@ -8,7 +8,7 @@ import ForecastList from "./components/ForecastList";
 import HourlyForecastSection from "./components/HourlyForecastSection";
 import { useState, useEffect, useContext } from "react";
 import { UnitsContext } from "./contexts/UnitsContext";
-import { UnitsProvider } from "./contexts/UnitsProvider";
+import WeatherInfoLoading from "./components/WeatherInfoLoading";
 
 const App = () => {
   const [selectedCity, setSelectedCity] = useState({
@@ -19,8 +19,10 @@ const App = () => {
   });
   const [weatherData, setWeatherData] = useState(null);
   const { unit } = useContext(UnitsContext);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    setIsLoading(true);
     const searchParams = new URLSearchParams({
       latitude: selectedCity.latitude,
       longitude: selectedCity.longitude,
@@ -45,12 +47,13 @@ const App = () => {
     fetch(`https://api.open-meteo.com/v1/forecast?${searchParams.toString()}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setWeatherData(data);
+        setIsLoading(false);
       })
-      .catch((error) =>
-        console.error("Error fetching weather data:", error.message)
-      );
+      .catch((error) => {
+        console.error("Error fetching weather data:", error.message);
+        setIsLoading(false);
+      });
   }, [selectedCity, unit]);
 
   const handleSelectedCity = (city) => {
@@ -70,17 +73,21 @@ const App = () => {
         <SearchCountryInput handleSelectedCity={handleSelectedCity} />
         <article className="gen-forecast">
           <section id="weather-info">
-            <WeatherInfo
-              location={`${selectedCity.name}, ${selectedCity.country}`}
-              date={new Date().toLocaleDateString("en-US", {
-                weekday: "long",
-                month: "short",
-                day: "numeric",
-                year: "numeric",
-              })}
-              icon={Sunny}
-              temperature={weatherData?.current?.temperature_2m || "--"}
-            />
+            {isLoading ? (
+              <WeatherInfoLoading />
+            ) : (
+              <WeatherInfo
+                location={`${selectedCity.name}, ${selectedCity.country}`}
+                date={new Date().toLocaleDateString("en-US", {
+                  weekday: "long",
+                  month: "short",
+                  day: "numeric",
+                  year: "numeric",
+                })}
+                icon={Sunny}
+                temperature={weatherData?.current?.temperature_2m || "--"}
+              />
+            )}
 
             <WeatherDetailsList
               details={weatherData?.current}
