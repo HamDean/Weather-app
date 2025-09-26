@@ -28,7 +28,7 @@ const App = () => {
         "relative_humidity_2m",
         "wind_speed_10m",
       ],
-      hourly: "temperature_2m",
+      hourly: ["temperature_2m", "weather_code"],
       timezone: "Europe/London",
     });
 
@@ -78,7 +78,7 @@ const App = () => {
             />
             <ForecastList weatherData={weatherData} />
           </section>
-          <HourlyForecastSection />
+          <HourlyForecastSection hourlyDetails={weatherData?.hourly} />
         </article>
       </main>
     </>
