@@ -5,7 +5,7 @@ import SearchDropdown from "./SearchDropdown";
 const SearchCountryInput = ({ handleSelectedCity }) => {
   const [query, setQuery] = useState("");
   const [cities, setCities] = useState([]);
-  const [showSuggestions, setShowSuggestions] = useState(true);
+  const [showSuggestions, setShowSuggestions] = useState(false);
   const searchRef = useRef();
 
   useEffect(() => {
@@ -25,6 +25,7 @@ const SearchCountryInput = ({ handleSelectedCity }) => {
     if (e.target) {
       setQuery(e.target.value);
     }
+    setShowSuggestions(false)
   };
 
   const handleSubmit = (formData) => {

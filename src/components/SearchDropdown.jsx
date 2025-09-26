@@ -4,13 +4,13 @@ const SearchDropdown = ({ cities = [], handleSelectedCity, query, showSuggestion
   if (!query || cities.length === 0) return null;
 
   return (
-    <div className={`search-list ${!showSuggestions ? "hidden" : ""}`}>
+    <div className={`search-list ${showSuggestions && "hidden"}`}>
       {cities.map((city) => (
         <span
           role="button"
           onClick={() => {
             handleSelectedCity(city);
-            setShowSuggestions(false);
+            setShowSuggestions(true);
             inputRef.current.value = ''
           }}
           key={city.id || city.name}
