@@ -15,7 +15,7 @@ const WeatherDetailsList = ({ details, units }) => {
       />
       <WeatherInfoDetail
         title={"Precipitation"}
-        value={details?.precipitation || '--'}
+        value={Math.round(details?.precipitation) || '--'}
         unit={units?.precipitation}
       />
       <WeatherInfoDetail

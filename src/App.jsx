@@ -6,7 +6,9 @@ import Sunny from "./assets/images/icon-sunny.webp";
 import WeatherDetailsList from "./components/WeatherDetailsList";
 import ForecastList from "./components/ForecastList";
 import HourlyForecastSection from "./components/HourlyForecastSection";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { UnitsContext } from "./contexts/UnitsContext";
+import { UnitsProvider } from "./contexts/UnitsProvider";
 
 const App = () => {
   const [selectedCity, setSelectedCity] = useState({
@@ -16,6 +18,7 @@ const App = () => {
     country: "Ghana",
   });
   const [weatherData, setWeatherData] = useState(null);
+  const { unit } = useContext(UnitsContext);
 
   useEffect(() => {
     const searchParams = new URLSearchParams({
@@ -29,8 +32,15 @@ const App = () => {
         "wind_speed_10m",
       ],
       hourly: ["temperature_2m", "weather_code"],
+
       timezone: "Europe/London",
     });
+
+    if (unit === "imperial") {
+      searchParams.set("wind_speed_unit", "mph");
+      searchParams.set("temperature_unit", "fahrenheit");
+      searchParams.set("precipitation_unit", "inch");
+    }
 
     fetch(`https://api.open-meteo.com/v1/forecast?${searchParams.toString()}`)
       .then((res) => res.json())
@@ -41,7 +51,7 @@ const App = () => {
       .catch((error) =>
         console.error("Error fetching weather data:", error.message)
       );
-  }, [selectedCity]);
+  }, [selectedCity, unit]);
 
   const handleSelectedCity = (city) => {
     setSelectedCity({
